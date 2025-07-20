@@ -1,6 +1,6 @@
 # [ICCV 2025] FVP: 4D Visual Pre-training for Robot Learning
 <p align="center">
-  <img src="./code/picture/teaser.png" width="800">
+  <img src="picture/teaser.png" width="800">
 </p>
 
 FVP is a novel 3D point cloud  representation learning pipeline for robotic manipulation. Different from prior works in Contrastive Learning and Masked Signal Modeling,  FVP trains 3D visual representations by leveraging the preceding frame point cloud and employing a diffusion model to predict the point cloud of the current frame.
