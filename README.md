@@ -1,5 +1,5 @@
 # FVP: 4D Visual Pre-training for Robot Learning
-[[Website](https://4d-visual-pretraining.github.io/)] | [ICCV 2025] 
+[[Website](https://4d-visual-pretraining.github.io/)] [arXiv] [ICCV 2025] 
 <p align="center">
   <img src="picture/teaser.png" width="800">
 </p>
