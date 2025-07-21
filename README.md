@@ -33,7 +33,7 @@ pip install ema-pytorch tensorboard
 ## Simulation Dataset Generation
 You can generate a dataset of simulated data following the DP3 instructions, for example:
 ```sh
-cd your_path/3D-Diffusion-Policy
+cd your_path/3D-Diffusion-Policy-master
 bash scripts/gen_demonstration_adroit.sh hammer
 ```
 ## Real-world Dataset Generation
