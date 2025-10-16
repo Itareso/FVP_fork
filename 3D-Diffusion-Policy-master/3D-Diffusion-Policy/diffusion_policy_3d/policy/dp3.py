@@ -40,6 +40,7 @@ class DP3(BasePolicy):
             use_pc_color=False,
             pointnet_type="pointnet",
             pointcloud_encoder_cfg=None,
+            pretrained_fvp_path=None,
             # parameters passed to step
             **kwargs):
         super().__init__()
@@ -67,6 +68,15 @@ class DP3(BasePolicy):
                                                 use_pc_color=use_pc_color,
                                                 pointnet_type=pointnet_type,
                                                 )
+        
+        if pretrained_fvp_path is not None:
+            ckpt = torch.load(pretrained_fvp_path, map_location='cpu')
+            state_dict = ckpt['MODEL']
+            # print(state_dict.keys())
+            # DP3Encoder.extractor is PointNetEncoderXYZ or PointNetEncoderXYZRGB
+            obs_encoder.extractor.load_state_dict(state_dict, strict=True)
+            cprint(f"Loaded FVP pretrained weights from {pretrained_fvp_path} into obs_encoder.extractor.", "cyan")
+
 
         # create diffusion model
         obs_feature_dim = obs_encoder.output_shape()
@@ -127,6 +137,9 @@ class DP3(BasePolicy):
         if num_inference_steps is None:
             num_inference_steps = noise_scheduler.config.num_train_timesteps
         self.num_inference_steps = num_inference_steps
+        
+        for p in self.obs_encoder.extractor.parameters():
+            p.requires_grad = False
 
 
         print_params(self)

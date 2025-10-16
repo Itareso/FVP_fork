@@ -19,6 +19,7 @@ obs_as_global_cond: True
 
 policy:
   _target_: diffusion_policy_3d.policy.dp3.DP3
+  pretrained_fvp_path: /data/zsj/FVP/bin_ft/ckpts/model_last.pth
   use_point_crop: true
   condition_type: film
   use_down_condition: true
@@ -27,17 +28,17 @@ policy:
   
   diffusion_step_embed_dim: 128
   down_dims:
+  - 256
   - 512
   - 1024
-  - 2048
   crop_shape:
   - 80
   - 80
   encoder_output_dim: 64
   horizon: ${horizon}
-  kernel_size: 5
+  kernel_size: 3
   n_action_steps: ${n_action_steps}
-  n_groups: 8
+  n_groups: 4
   n_obs_steps: ${n_obs_steps}
 
   noise_scheduler:

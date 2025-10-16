@@ -50,7 +50,7 @@ diffusion:
 
 # training params
 batch_size: 16
-lrate: 1.0e-4
+lrate: 5.0e-5
 lrate_ratio: 2
 optim: 'AdamW'
 optim_args:
@@ -58,12 +58,12 @@ optim_args:
   betas: [ 0.9, 0.95 ]
 grad_clip_norm: 50
 
-n_epoch: 100
-warm_epoch: 30
+n_epoch: 10
+warm_epoch: 1
 load_epoch: -1
 ema: 0.9999
 
 n_sample: 30
-save_dir: './reach_chicken'
+save_dir: 'bin_ft'
 save_per: 5
-dataset: '/home/eai/soda/3D-Diffusion-Policy-master/3D-Diffusion-Policy/data/metaworld_basketball_expert.zarr'
+dataset: '/data/zsj/3D-Diffusion-Policy/3D-Diffusion-Policy/data/metaworld_bin-picking_expert.zarr'
